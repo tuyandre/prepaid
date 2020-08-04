@@ -16,3 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('user/login', [
+    'uses' => 'CustomerController@login',
+    'as' => 'customer.login'
+]);
+
+Route::get('prepaid/admin/register', [
+    'uses' => 'AdminController@register',
+    'as' => 'admin.register'
+]);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

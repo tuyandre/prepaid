@@ -1,0 +1,7 @@
+.content{
+    position: relative;
+    resize: horizontal;
+    left: 0px;
+    /* margin-left: 1%; */
+    overflow-x: hidden;
+}
