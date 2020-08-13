@@ -62,16 +62,16 @@
         methods: {
             login () {
                 this.is_disable=true
-                this.form.post('/login/creator')
+                this.form.post('/prepaid/login')
                     .then(({ data }) => {
-                        console.log(data.message)
-                        if (data.message=="ok"){
+//                        console.log(data.auth)
+                        if (data.auth=="ok"){
 
                             // this.getLogin()
-                            window.location = "/";
+                            window.location = "/home";
                             //  window.location = "/creators";
 
-                        }else if(data.message=='not') {
+                        }else if(data.auth=='not') {
                             this.message="Email or Password Credential Incorrect"
                             Swal.fire({
                                 title: 'Credential Incorrect!',
@@ -80,31 +80,12 @@
                                 confirmButtonText: 'Ok'
                             })
                             this.is_disable=false
-                        }else if(data.message=='client'){
-                            window.location = "/";
-
-                        }
-                        else if(data.message=='incomplete'){
-                            this.message="Please Complete your Registration"
-                            Swal.fire({
-                                title: 'Not Completed!',
-                                text: 'Please Complete your Registration',
-                                icon: 'error',
-                                confirmButtonText: 'Complete'
-                            })
-                            this.is_disable=false
-                            this.$router.push({
-                                name: 'update',
-                                params: { slug: data.creator }
-                            });
-                            //  this.$router.push('/update/')
-
                         }else
                         {
-                            this.message="Please wait you are not activated or Contact Admin"
+                            this.message="Server Error please try again"
                             Swal.fire({
-                                title: 'Not Activated!',
-                                text: 'Please wait  or Contact Admin',
+                                title: 'Server Error!',
+                                text: 'Server Error please try again',
                                 icon: 'error',
                                 confirmButtonText: 'Ok'
                             })

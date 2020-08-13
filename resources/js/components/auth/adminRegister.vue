@@ -17,7 +17,7 @@
                         </div>
                         <div class="form-group">
                             <label for="emailId">Email</label>
-                            <input type="text" class="form-control" id="emailId" placeholder="Ex:email@... " v-model="form.email" required name="email" :class="{ 'is-invalid': form.errors.has('email') }">
+                            <input type="text" class="form-control" id="emailId" placeholder="Ex:email@gmail.com " v-model="form.email" required name="email" :class="{ 'is-invalid': form.errors.has('email') }">
                             <has-error :form="form" field="email"></has-error>
                         </div>
                         <div class="form-group">
@@ -69,49 +69,20 @@
         methods: {
             login () {
                 this.is_disable=true
-                this.form.post('/login/creator')
+                this.form.post('/prepaid/admin/register/store')
                     .then(({ data }) => {
-                        console.log(data.message)
-                        if (data.message=="ok"){
+                        console.log(data.auth)
+                        if (data.auth=="ok"){
 
                             // this.getLogin()
-                            window.location = "/";
+                            window.location = "/user/login";
                             //  window.location = "/creators";
-
-                        }else if(data.message=='not') {
-                            this.message="Email or Password Credential Incorrect"
-                            Swal.fire({
-                                title: 'Credential Incorrect!',
-                                text: 'Email or Password Credential Incorrect',
-                                icon: 'error',
-                                confirmButtonText: 'Ok'
-                            })
-                            this.is_disable=false
-                        }else if(data.message=='client'){
-                            window.location = "/";
-
-                        }
-                        else if(data.message=='incomplete'){
-                            this.message="Please Complete your Registration"
-                            Swal.fire({
-                                title: 'Not Completed!',
-                                text: 'Please Complete your Registration',
-                                icon: 'error',
-                                confirmButtonText: 'Complete'
-                            })
-                            this.is_disable=false
-                            this.$router.push({
-                                name: 'update',
-                                params: { slug: data.creator }
-                            });
-                            //  this.$router.push('/update/')
-
                         }else
                         {
-                            this.message="Please wait you are not activated or Contact Admin"
+                            this.message="Server Error please try again"
                             Swal.fire({
-                                title: 'Not Activated!',
-                                text: 'Please wait  or Contact Admin',
+                                title: 'Server Error!',
+                                text: 'Server Error please try again',
                                 icon: 'error',
                                 confirmButtonText: 'Ok'
                             })

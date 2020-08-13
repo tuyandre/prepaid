@@ -28,12 +28,27 @@ Vue.component(HasError.name, HasError)
 Vue.component(AlertError.name, AlertError)
 window.Form = Form;
 
+import VueGoodTablePlugin from 'vue-good-table';
+
+// import the styles
+import 'vue-good-table/dist/vue-good-table.css'
+Vue.use(VueGoodTablePlugin);
+
+import CoreuiVue from '@coreui/vue';
+Vue.use(CoreuiVue);
+
+
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 Vue.component('welcome', require('./components/home/welcome.vue').default);
 Vue.component('login', require('./components/auth/login.vue').default);
 Vue.component('admin-register', require('./components/auth/adminRegister.vue').default);
+
+Vue.component('dashboard', require('./components/backend/home.vue').default);
+
+
+
 const app = new Vue({
     el: '#app',
     router,

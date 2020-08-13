@@ -1,0 +1,43 @@
+.admin-header li a{
+    color: #06275B !important;
+    font-family: "Arial Black", Gadget, sans-serif;
+         font-style: normal; 
+        font-weight: 50;
+}
+
+.admin-header li a:hover{
+    color: rgb(230, 47, 47) !important;
+}
+.admin-profile{
+    margin-top: -10px !important;
+    width: 45px !important;
+    height:45px !important;
+    border-radius: 50% !important;
+
+}
+.admin-logo{
+    width: 45px !important;
+    height:45px !important;
+    border-radius: 50% !important;  
+}
+.admin-profile2{
+    width: 50px !important;
+    height:50px !important;
+}
+.admin-profile3{
+    /* padding-top: -10px !important; */
+    width: 45px !important;
+    height:45px !important;
+
+}
+.admin-header-footer a{
+    position: relative;
+    /* margin-left: 20px; */
+}
+.admin-header-footer .header-profile{
+    margin-right: 100px;
+    margin-bottom: 20px;
+}
+.admin-header-footer .header-logout{
+    margin-right: 20px;
+}
