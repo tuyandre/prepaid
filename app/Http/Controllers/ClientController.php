@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Balance;
+use App\Checkout;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Client;
@@ -77,19 +79,19 @@ class ClientController extends Controller
             }
             return response()->json(['client' => $b]);
         }
-        
+
     public function update (Request $request){
         $this->validate($request, [
             'name' => 'required|',
             'telephone' => 'required',
-    
+
         ],[
             'name.required' => ' The  Role display name is Required.',
             'telephone.required' => ' The Description is Required.',
-        
-    
+
+
         ]);
-    
+
             $client = Client::find($request->input('id'));
             if(!$client){
                 return response()->json(['message'=>'Invalid Client'],404);
@@ -107,5 +109,16 @@ class ClientController extends Controller
             }
             return response()->json(['message' => "ok"], 200);
     }
-    
+    public function searchEngine(Request $request){
+        $b = Client::where('compte',$request->params['compte'])->first();
+        if ($b) {
+            $bills = Checkout::with(['Client'])->where('client_id', $b->id)->orderBy('id', 'DESC')->get();
+            $usage = Balance::with(['Client'])->where('client_id', $b->id)->orderBy('id', 'DESC')->get();
+        }else{
+            $bills=[];
+            $usage=[];
+        }
+        return response()->json(['usage' => $usage,'bills'=>$bills], 200);
+    }
+
 }

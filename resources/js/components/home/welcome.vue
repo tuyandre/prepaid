@@ -4,7 +4,7 @@
         <div class="home-page" >
             <header>
                 <a href="/" >
-                    <img src="/data/assets/logo.jpg" alt="Quincy Larson's profile picture" class="profile-thumbnail">
+                    <img src="/data/assets/logo.jpg" alt="Logo" class="profile-thumbnail">
                 </a>
 
                 <div class="follow-btn" v-if="!auth" >
@@ -30,21 +30,9 @@
                 </div>
                 <ul class="list-unstyled ct-sidenav-list">
                     <li>
-                        <a href="#"> <i class="fa fa-upload " aria-hidden="true" ></i> Start Upload</a>
-                    </li>
-                    <li>
-                        <a href="/customer"> <i class="fa fa-cog " aria-hidden="true" ></i> Setting</a>
-                    </li>
-                    <li>
-                        <a href="#">   <i class="fa fa-bell" aria-hidden="true"></i> Subscriptions</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-question-circle" aria-hidden="true"></i> Help</a>
-                    </li>
-                    <li>
-      <span  @click="logout()">
-        <i class="fa fa-power-off" aria-hidden="true"></i> Sign Out
-        </span>
+                    <span  @click="logout()">
+                        <i class="fa fa-power-off" aria-hidden="true"></i> Sign Out
+                        </span>
                     </li>
                 </ul>
             </div>
@@ -56,13 +44,13 @@
                     <h4>Enter the water meter for getting your historical data</h4>
                 </div>
                 <div class="searchbox" >
-                    <input class="is-field" type='text'    v-model="searchInput"  placeholder="Search..." />
-                    <div class="is-icon" ><i class="fas fa-search fa-1x"></i></div>
+                    <input class="is-field" type='number'    v-model="searchInput"  placeholder="Search..." />
+                    <div class="is-icon" > <button @click="searchEngine()"><i class="fas fa-search fa-1x"></i></button></div>
                 </div>
                 <!-- <hr> -->
             </div>
             <!-- <SearchResult :search="searchInput"></SearchResult> -->
-            <!--<Result :search="searchInput"></Result>-->
+            <search-result :search="bills" :search_usages="usages"></search-result>
 
 
 
@@ -78,20 +66,32 @@
                 isToggled:false,
                 searchInput: '',
                 search:'',
+                search_usages:'',
+                bills:null,
+                usages:null,
                 auth:null,
             }
         },
-//        created () {
-//            axios.get('/api/auth/user/data')
-//                .then(response => (
-//                    this.auth = response.data))
-//        },
-//        mounted () {
-//            axios.get('/api/auth/user/data')
-//                .then(response => (
-//                    this.auth = response.data))
-//        },
+       created () {
+           axios.get('/auth/user/data')
+               .then(response => (
+                   this.auth = response.data))
+       },
+       mounted () {
+           axios.get('/auth/user/data')
+               .then(response => (
+                   this.auth = response.data))
+       },
         methods: {
+            searchEngine(){
+                axios.put('/client/prepaid/searchEngine/api', {
+                    params:{compte:this.searchInput} 
+                })
+                    .then(response => (
+                        this.bills=response.data.bills,
+                        this.usages=response.data.usage
+                    )).catch((error) => console.log(error));
+            },
             logout(){
                 axios
                     .get('/creators/logout')

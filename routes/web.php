@@ -98,7 +98,7 @@ Route::get('auth/user/data', function () {
         'uses' => 'ClientController@getClients',
         'as' => 'clients.allUsers'
     ]);
-    
+
     Route::post('admin/AddClient/save', [
         'uses' => 'ClientController@storeClient',
         'as' => 'clients.store'
@@ -128,3 +128,8 @@ Route::get('auth/user/data', function () {
         'uses' => 'BillsController@getUsage',
         'as' => 'bills.getUSAGE'
     ]);
+
+Route::put('client/prepaid/searchEngine/api', [
+    'uses' => 'ClientController@searchEngine',
+    'as' => 'clients.searchEngine'
+]);

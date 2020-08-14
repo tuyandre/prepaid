@@ -37,15 +37,23 @@ Vue.use(VueGoodTablePlugin);
 import CoreuiVue from '@coreui/vue';
 Vue.use(CoreuiVue);
 
+const moment = require('moment')
+// require('moment/locale/es')
+Vue.use(require('vue-moment'), {
+    moment
+})
+
 
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 Vue.component('welcome', require('./components/home/welcome.vue').default);
+Vue.component('search-result', require('./components/home/searchResult.vue').default);
 Vue.component('login', require('./components/auth/login.vue').default);
 Vue.component('admin-register', require('./components/auth/adminRegister.vue').default);
 
 Vue.component('dashboard', require('./components/backend/home.vue').default);
+
 
 
 
