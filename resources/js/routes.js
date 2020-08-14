@@ -15,6 +15,15 @@ import addUser from './components/backend/users/addUser.vue'
 import AllUser from './components/backend/users/allUser.vue'
 import editUser from './components/backend/users/editUser.vue'
 
+import addClient from './components/backend/clients/addClient.vue'
+import AllClient from './components/backend/clients/allClient.vue'
+import editClient from './components/backend/clients/editClient.vue'
+
+import addWaterBill from './components/backend/bills/addBills.vue'
+import AllWaterBill from './components/backend/bills/allBills.vue'
+import billRecord from './components/backend/bills/billRecord.vue'
+import waterUsage from './components/backend/bills/waterUsage.vue'
+
 
 export const routes = [
     {
@@ -84,6 +93,50 @@ export const routes = [
         path: '/editUser',
         component: editUser,
         name:'editUser'
+    },
+    
+    {
+        baseUrl:'/home',
+        path: '/allClient',
+        component: AllClient,
+        name:'allClient'
+    },
+    {
+        baseUrl:'/home',
+        path: '/addClient',
+        component: addClient,
+        name:'addClient'
+    },
+    {
+        baseUrl:'/home',
+        path: '/editClient/:id',
+        component: editClient,
+        name:'editClient',
+        props:true
+    },
+    {
+        baseUrl:'/home',
+        path: '/waterBill',
+        component: AllWaterBill,
+        name:'allBills'
+    },
+    {
+        baseUrl:'/home',
+        path: '/addBills',
+        component: addWaterBill,
+        name:'addBills'
+    },
+    {
+        baseUrl:'/home',
+        path: '/billRecord',
+        component: billRecord,
+        name:'billRecord'
+    },
+    {
+        baseUrl:'/home',
+        path: '/waterUsage',
+        component: waterUsage,
+        name:'waterUsage'
     },
 
 

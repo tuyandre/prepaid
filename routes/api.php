@@ -17,3 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::post('client/AddUsage/save', [
+    'uses' => 'BillsController@storeUsage',
+    'as' => 'usage.store'
+]);
+Route::get('client/waterUsage/{compte}', [
+    'uses' => 'BillsController@getRealUsage',
+    'as' => 'bills.getRealUsage'
+]);

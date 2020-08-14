@@ -57,27 +57,13 @@ Route::get('auth/user/data', function () {
 
 
      // Routes of Roles
-
-     Route::get('AddRole', [
-        'uses' => 'RoleController@addRoles',
-        'as' => 'Roles.addRole'
-    ]);
     Route::post('admin/AddRole/save', [
         'uses' => 'RoleController@storeRoles',
         'as' => 'Roles.store'
     ]);
-    Route::get('AllRoles', [
-        'uses' => 'RoleController@getAllRoles',
-        'as' => 'Roles.alls'
-    ]);
-
     Route::get('admin/AllRole', [
         'uses' => 'RoleController@getRoles',
         'as' => 'Roles.allRoles'
-    ]);
-    Route::get('AddRole', [
-        'uses' => 'RoleController@addRoles',
-        'as' => 'Roles.addRole'
     ]);
     Route::put('admin/roles/delete', [
         'uses' => 'RoleController@destroy',
@@ -90,4 +76,55 @@ Route::get('auth/user/data', function () {
     Route::post('admin/Roles/update', [
         'uses' => 'RoleController@update',
         'as' => 'roles.updated'
+    ]);
+    // Users Routes
+
+    Route::get('admin/AllUser', [
+        'uses' => 'UserController@getUsers',
+        'as' => 'users.allUsers'
+    ]);
+    Route::post('admin/AddUser/save', [
+        'uses' => 'UserController@storeUser',
+        'as' => 'users.store'
+    ]);
+    Route::put('admin/users/delete', [
+        'uses' => 'UserController@destroy',
+        'as' => 'users.delete'
+    ]);
+
+    // clients routes
+
+    Route::get('admin/AllClient', [
+        'uses' => 'ClientController@getClients',
+        'as' => 'clients.allUsers'
+    ]);
+    
+    Route::post('admin/AddClient/save', [
+        'uses' => 'ClientController@storeClient',
+        'as' => 'clients.store'
+    ]);
+    Route::put('admin/clients/delete', [
+        'uses' => 'ClientController@destroy',
+        'as' => 'clients.delete'
+    ]);
+    Route::put('admin/clients/show', [
+        'uses' => 'ClientController@show',
+        'as' => 'clients.show'
+    ]);
+    Route::post('admin/clients/update', [
+        'uses' => 'ClientController@update',
+        'as' => 'clients.updated'
+    ]);
+    // water bills routes
+    Route::get('admin/waterBills', [
+        'uses' => 'BillsController@getBills',
+        'as' => 'bills.getBills'
+    ]);
+    Route::post('admin/AddBills/save', [
+        'uses' => 'BillsController@storeBills',
+        'as' => 'bills.store'
+    ]);
+    Route::get('admin/waterUsage', [
+        'uses' => 'BillsController@getUsage',
+        'as' => 'bills.getUSAGE'
     ]);

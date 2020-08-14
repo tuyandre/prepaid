@@ -135,8 +135,18 @@ $photo=Auth::user()->profile;
 
 
 
-         <li class="nav-item">
-                    <a href="/home#/video/category" class="nav-link">
+                
+
+                <li class="nav-item">
+                    <a href="/home#/allClient" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Clients
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/home#/waterBill" class="nav-link">
                         <i class="nav-icon fas fa-dollar-sign"></i>
                         <p>
                             Buy Water
@@ -145,19 +155,18 @@ $photo=Auth::user()->profile;
                 </li>
 
                 <li class="nav-item">
-                    <a href="/creator/Dashboard#/audio/category" class="nav-link">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>
-                            Clients
-                        </p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="/creator/Dashboard#/creator/videoList" class="nav-link">
+                    <a href="/home#/billRecord" class="nav-link">
                         <i class="nav-icon fa fa fa-file-excel"></i>
                         <p>
                             Water Bill Record
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/home#/waterUsage" class="nav-link">
+                        <i class="nav-icon fa fa fa-file-excel"></i>
+                        <p>
+                            Water Usage
                         </p>
                     </a>
                 </li>
@@ -173,14 +182,14 @@ $photo=Auth::user()->profile;
                     </a>
                     <ul class="nav nav-treeview">
                       <li class="nav-item">
-                        <a href="/admin/Dashboard#/admin/videoMusic" class="nav-link">
+                        <a href="/home#/client/report" class="nav-link">
                           <i class="fa fa fa-file-pdf nav-icon"></i>
                           <i class="fa fa fa-users nav-icon"></i>
-                          <p>Users</p>
+                          <p>Clients</p>
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a href="/admin/Dashboard#/admin/audioMusic" class="nav-link">
+                        <a href="/home#/waterBillRecord/report" class="nav-link">
                           <i class="far fa-file-pdf nav-icon"></i>
                           <i class="far fa-dollar-sign nav-icon"></i>
                           <p>Water Bill Record</p>

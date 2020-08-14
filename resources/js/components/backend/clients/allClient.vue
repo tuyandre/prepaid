@@ -9,7 +9,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">All Role</li>
+                    <li class="breadcrumb-item active">All Clients</li>
                     </ol>
                 </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -21,9 +21,9 @@
         <CCol sm="12" md="12" lg="12">
         <CCard>
           <CCardHeader>
-            <span>Audio  List</span>
+            <span>Clients  List</span>
             <CBadge class="float-right">
-               <router-link :to="'/addRole'" class="btn btn-info" > <i class="fa fa-plus-square" aria-hidden="true"></i>Add New</router-link> </CBadge>
+               <router-link :to="'/addClient'" class="btn btn-info" > <i class="fa fa-plus-square" aria-hidden="true"></i>Add New</router-link> </CBadge>
           </CCardHeader>
           <CCardBody>
 
@@ -44,8 +44,9 @@
                         >
                         <template slot="table-row" slot-scope="props">
                         <span v-if="props.column.field == 'actions'">
-                      <router-link :to="{ name: 'editRole', params: { id: props.row.id } }" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i>Edit</router-link>
-                       <button class="btn btn-danger"  @click="deleteRole(props.row)"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
+                         <router-link :to="{ name: 'editClient', params: { id: props.row.id } }" class="btn btn-primary"><i class="fa fa-edit" aria-hidden="true"></i>Edit</router-link>
+                       
+                      <button class="btn btn-danger"  @click="deleteClient(props.row)"><i class="fa fa-trash" aria-hidden="true"></i> Delete</button>
                         </span>
                        
                         <span v-else>
@@ -67,7 +68,7 @@
 
 import Swal from 'sweetalert2'
 export default {
-    name:'allRole',
+    name:'allClient',
     data() {
         return {
           
@@ -78,13 +79,33 @@ export default {
               filterable: true,
             },
              {
-              label: 'Display Name',
-              field: 'display_name',  
+              label: 'NATIONAL ID',
+              field: 'nid',  
               filterable: true,
             },
              {
-              label: 'Description',
-              field: 'description',  
+              label: 'Compte',
+              field: 'compte',  
+              filterable: true,
+            },
+             {
+              label: 'Date',
+              field: 'date',  
+              filterable: true,
+            },
+             {
+              label: 'Telephone',
+              field: 'telephone',  
+              filterable: true,
+            },
+             {
+              label: 'District',
+              field: 'district',  
+              filterable: true,
+            },
+             {
+              label: 'Sector',
+              field: 'sector',  
               filterable: true,
             },
             {
@@ -99,17 +120,17 @@ export default {
         }
     },
     created () {
-         this.getAllRole();
+         this.getAllClient();
     },
     methods: {
-       getAllRole(){
+       getAllClient(){
             var self = this;
             var new1=[];
-            axios.get('/admin/AllRole')
+            axios.get('/admin/AllClient')
                 .then(response => (
-             self.rows=response.data.roles))
+             self.rows=response.data.clients))
              },
-        deleteRole(role){
+        deleteClient(client){
                 Swal.fire({
                 title: 'Are you sure?',
                 text: "You won't be able to revert this!",
@@ -123,11 +144,11 @@ export default {
                 confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                 if (result.value) {
-                     axios.put('/admin/roles/delete', {
-                    params:{id:role.id} 
+                     axios.put('/admin/clients/delete', {
+                    params:{id:client.id} 
                 })
                     .then(response => (
-                        this.getAllUser(),
+                        this.getAllClient(),
                         console.log(response.data),
                          Swal.fire(
                     'Deleted!',
