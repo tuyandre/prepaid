@@ -217,7 +217,7 @@
       <workItem from="1604208919308" duration="596000" />
       <workItem from="1604253232072" duration="1794000" />
       <workItem from="1604322317693" duration="29000" />
-      <workItem from="1605429989709" duration="2190000" />
+      <workItem from="1605429989709" duration="4158000" />
     </task>
     <servers />
   </component>
@@ -254,6 +254,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1323" height="190" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1605430264187" />
+    <state x="0" y="0" width="585" height="768" key="find.popup" timestamp="1605433654936">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="0" y="0" width="585" height="768" key="find.popup/0.0.1366.768@0.0.1366.768" timestamp="1605433654936" />
     <state x="399" y="172" key="jetbrains.nodejs.interpreters-dialog" timestamp="1604138312290">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
