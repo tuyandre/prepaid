@@ -7,19 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="HandheldFriendly" content="true">
     <title>Prepaid</title>
- 
-    <link rel="icon" href="https://prepaidproject.herokuapp.com/data/assets/logo.jpg">
-    <link href="https://prepaidproject.herokuapp.com/css/app.css" rel="stylesheet">
-    <link href="https://prepaidproject.herokuapp.com/css/adminHeader.css" rel="stylesheet">
-    <link href="https://prepaidproject.herokuapp.com/css/responsive.css" rel="stylesheet">
-    <link href="https://prepaidproject.herokuapp.com/vendors/flaticon/flaticon.css" rel="stylesheet">
-    <link href="https://prepaidproject.herokuapp.com/vendors/linericon/style.css" rel="stylesheet">
 
-    {{--  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/adminHeader.css') }}" rel="stylesheet">
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('vendors/flaticon/flaticon.css')}}">
-    <link rel="stylesheet" href="{{ asset('vendors/linericon/style.css')}}">  --}}
+    <link rel="stylesheet" href="{{ asset('vendors/linericon/style.css')}}">
 
     <meta name="csrf-token" content="{{ csrf_token() }}"> </head>
     <body class="hold-transition sidebar-mini layout-fixed">
@@ -30,7 +23,7 @@
           <!-- Content Wrapper. Contains page content -->
           <div class="content-wrapper">
             @yield('content')
-            
+
             {{--  <customer-main></customer-main>  --}}
 
           </div>
@@ -39,8 +32,6 @@
     </div>
     <!-- built files will be auto injected -->
     <!-- ./wrapper -->
-    {{--  <script src="{{ asset('js/app.js') }}" defer></script>  --}}
-    
-<script src="https://prepaidproject.herokuapp.com/js/app.js" defer></script>
+      <script src="{{ asset('js/app.js') }}" defer></script>
   </body>
 </html>

@@ -6,7 +6,7 @@ $name=Auth::user()->name;
 $photo=Auth::user()->profile;
 ?>
 <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="{{url('/home')}}" class="brand-link">
         <img src="/data/assets/logo.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3 admin-logo"
              style="opacity: .8">
         <span class="brand-text font-weight-light">Prepaid</span>
@@ -81,7 +81,7 @@ $photo=Auth::user()->profile;
                     </ul>
                 </li>
 
-
+                @role('admin')
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fa fa-cogs"></i>
@@ -130,12 +130,12 @@ $photo=Auth::user()->profile;
                 </li>
 
 
+@endrole
 
 
 
 
-
-                
+                @role('register')
 
                 <li class="nav-item">
                     <a href="/home#/allClient" class="nav-link">
@@ -145,6 +145,8 @@ $photo=Auth::user()->profile;
                         </p>
                     </a>
                 </li>
+                @endrole
+                @role('agent')
                 <li class="nav-item">
                     <a href="/home#/waterBill" class="nav-link">
                         <i class="nav-icon fas fa-dollar-sign"></i>
@@ -153,7 +155,8 @@ $photo=Auth::user()->profile;
                         </p>
                     </a>
                 </li>
-
+                @endrole
+                @role('admin|register')
                 <li class="nav-item">
                     <a href="/home#/billRecord" class="nav-link">
                         <i class="nav-icon fa fa fa-file-excel"></i>
@@ -197,7 +200,8 @@ $photo=Auth::user()->profile;
                       </li>
                     </ul>
                   </li>
-            
+                @endrole
+
 
 
             </ul>

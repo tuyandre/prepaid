@@ -18,7 +18,7 @@ class ClientController extends Controller
     }
     public function generateCompte(){
 
-        $number = mt_rand(100000000, 999999999);
+        $number = mt_rand(110000000, 999999999);
         if (ClientController::checkCompte($number)) {
             return ClientController::generateCompte();
         }
