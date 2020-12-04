@@ -105,10 +105,13 @@ class BillsController extends Controller
         }
     }
     public function getRealUsage($compte){
-        return response()->json(['usage' => $compte], 200);
         $client=Client::where('compte',$compte)->first();
-        $usage=Balance::where('client_id',$client->id)->orderBy('id', 'DESC')->first();
-        return response()->json(['usage' => $usage], 200);
+        if ($client){
+            $usage=Balance::where('client_id',$client->id)->orderBy('id', 'DESC')->first();
+            return response()->json(['usage' => $usage->balance], 200);
+        }else{
+            return response()->json(['usage' => "not"], 404);
+        }
     }
     public function getRealUsageTest($compte){
         $client=Client::where('compte',$compte)->first();
