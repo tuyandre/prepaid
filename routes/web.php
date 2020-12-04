@@ -133,3 +133,11 @@ Route::put('client/prepaid/searchEngine/api', [
     'uses' => 'ClientController@searchEngine',
     'as' => 'clients.searchEngine'
 ]);
+//Route::get('data/client/waterusage/{comptee}', [
+//    'uses' => 'BillsController@getRealUsage',
+//    'as' => 'bills.getRealUsage'
+//]);
+//Route::get('data/client/water/usage/{compte}', [
+//    'uses' => 'BillsController@getRealUsageTest',
+//    'as' => 'bills.getRealUsageTest'
+//]);

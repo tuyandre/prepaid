@@ -13,15 +13,15 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-Route::post('client/AddUsage/save', [
+Route::post('/client/AddUsage/save', [
     'uses' => 'BillsController@storeUsage',
     'as' => 'usage.store'
 ]);
-Route::get('client/waterUsage/{compte}', [
+Route::get('/client/waterUsage/{compte}', [
     'uses' => 'BillsController@getRealUsage',
     'as' => 'bills.getRealUsage'
 ]);
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
