@@ -1,9 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:composer" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:dependabot" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:composer" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:symfony" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="291d562d-4b5a-45b0-880b-c977ba70b0ea" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/public/css/client.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/reports/client.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/reports/waterBill.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/BillsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/BillsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/reports/clientReport.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reports/clientReport.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/reports/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reports/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/reports/waterBillReport.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/reports/waterBillReport.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/shared/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shared/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/shared/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shared/master.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/shared/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/shared/sidebar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,12 +267,27 @@
       <workItem from="1604253232072" duration="1794000" />
       <workItem from="1604322317693" duration="29000" />
       <workItem from="1605429989709" duration="5047000" />
-      <workItem from="1607095680574" duration="5381000" />
+      <workItem from="1607095680574" duration="6068000" />
+      <workItem from="1607113804698" duration="103000" />
+      <workItem from="1607369496571" duration="2659000" />
+      <workItem from="1607388592676" duration="8002000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="392" y="49" key="#dev" timestamp="1604137983409">
@@ -240,22 +303,22 @@
     </state>
     <state x="462" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1604138309806" />
     <state x="462" y="126" key="FileChooserDialogImpl/0.0.1366.768@0.0.1366.768" timestamp="1604322354499" />
-    <state width="1323" height="190" key="GridCell.Tab.0.bottom" timestamp="1605441214716">
+    <state width="1323" height="190" key="GridCell.Tab.0.bottom" timestamp="1607398423458">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="190" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1605441214716" />
-    <state width="1323" height="190" key="GridCell.Tab.0.center" timestamp="1605441214716">
+    <state width="1323" height="190" key="GridCell.Tab.0.bottom/0.0.1366.768@0.0.1366.768" timestamp="1607398423458" />
+    <state width="1323" height="190" key="GridCell.Tab.0.center" timestamp="1607398423458">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="190" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1605441214716" />
-    <state width="1323" height="190" key="GridCell.Tab.0.left" timestamp="1605441214715">
+    <state width="1323" height="190" key="GridCell.Tab.0.center/0.0.1366.768@0.0.1366.768" timestamp="1607398423458" />
+    <state width="1323" height="190" key="GridCell.Tab.0.left" timestamp="1607398423457">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="190" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1605441214715" />
-    <state width="1323" height="190" key="GridCell.Tab.0.right" timestamp="1605441214716">
+    <state width="1323" height="190" key="GridCell.Tab.0.left/0.0.1366.768@0.0.1366.768" timestamp="1607398423457" />
+    <state width="1323" height="190" key="GridCell.Tab.0.right" timestamp="1607398423458">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state width="1323" height="190" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1605441214716" />
+    <state width="1323" height="190" key="GridCell.Tab.0.right/0.0.1366.768@0.0.1366.768" timestamp="1607398423458" />
     <state x="0" y="0" width="585" height="768" key="find.popup" timestamp="1605433654936">
       <screen x="0" y="0" width="1366" height="768" />
     </state>

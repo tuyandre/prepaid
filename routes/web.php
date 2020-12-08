@@ -141,3 +141,29 @@ Route::put('client/prepaid/searchEngine/api', [
 //    'uses' => 'BillsController@getRealUsageTest',
 //    'as' => 'bills.getRealUsageTest'
 //]);
+
+Route::get('admin/report/client', [
+    'uses' => 'ReportController@client',
+    'as' => 'reports.clients'
+]);
+Route::post('admin/report/clientReport', [
+    'uses' => 'ReportController@clientReport',
+    'as' => 'reports.clientReport'
+]);
+Route::post('admin/report/customClientReport', [
+    'uses' => 'ReportController@customClientReport',
+    'as' => 'reports.customClientReport'
+]);
+
+Route::get('admin/report/waterBill', [
+    'uses' => 'ReportController@waterBill',
+    'as' => 'reports.waterBill'
+]);
+Route::post('admin/report/waterBillReport', [
+    'uses' => 'ReportController@waterBillReport',
+    'as' => 'reports.waterBillReport'
+]);
+Route::post('admin/report/customWaterBillReport', [
+    'uses' => 'ReportController@customWaterBillReport',
+    'as' => 'reports.customWaterBillReport'
+]);

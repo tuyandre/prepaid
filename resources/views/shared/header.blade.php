@@ -56,7 +56,7 @@
 
                 <a href="#" class="dropdown-item">
                     <div class="media admin-header-footer">
-                        <a  href="/creator/Dashboard#/fullProfile" class="btn btn-info header-profile">Profile</a>
+                        <a  href="/home#/fullProfile" class="btn btn-info header-profile">Profile</a>
                         <div class="media-body">
 
                             <a class="btn btn-warning header-logout" href="{{ route('logout') }}"

@@ -185,14 +185,14 @@ $photo=Auth::user()->profile;
                     </a>
                     <ul class="nav nav-treeview">
                       <li class="nav-item">
-                        <a href="/home#/client/report" class="nav-link">
+                        <a href="{{route('reports.clients')}}" class="nav-link">
                           <i class="fa fa fa-file-pdf nav-icon"></i>
                           <i class="fa fa fa-users nav-icon"></i>
                           <p>Clients</p>
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a href="/home#/waterBillRecord/report" class="nav-link">
+                        <a href="{{route('reports.waterBill')}}" class="nav-link">
                           <i class="far fa-file-pdf nav-icon"></i>
                           <i class="far fa-dollar-sign nav-icon"></i>
                           <p>Water Bill Record</p>

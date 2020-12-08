@@ -13,6 +13,7 @@
     <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('vendors/flaticon/flaticon.css')}}">
     <link rel="stylesheet" href="{{ asset('vendors/linericon/style.css')}}">
+    @yield('css')
 
     <meta name="csrf-token" content="{{ csrf_token() }}"> </head>
     <body class="hold-transition sidebar-mini layout-fixed">
