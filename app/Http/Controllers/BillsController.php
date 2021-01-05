@@ -47,7 +47,7 @@ class BillsController extends Controller
                 $bal->used=0;
                 $bal->balance=$client->balance[$size-1]->balance+BillsController::computeBill($request['cash']);
                 $bal->save();
-                return response()->json(['message' => 'ok'], 200);
+//                return response()->json(['message' => 'ok'], 200);
             }else{
                 $bill=new Checkout();
                 $bill->client_id=$client->id;
@@ -65,7 +65,34 @@ class BillsController extends Controller
                 $bal->used=0;
                 $bal->balance=BillsController::computeBill($request['cash']);
                 $bal->save();
-                return response()->json(['message' => 'ok'], 200);
+
+//                return response()->json(['message' => 'ok'], 200);
+            }
+            $met=BillsController::computeBill($request['cash']);
+            $data = array(
+                "sender"=>'+250781898344',
+                "recipients"=>'+250'.$client->telephone,
+                "message"=>"uguze amazi ya ".$request['cash'] ." Rwf baguhaye". $met ." Litres"
+            ,);
+            $url = "https://www.intouchsms.co.rw/api/sendsms/.json";
+            $data = http_build_query($data);
+            $username="esperance";
+            $password="0781898344";
+
+            $ch = curl_init();
+            curl_setopt($ch,CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
+            curl_setopt($ch,CURLOPT_POST,true);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+            curl_setopt($ch,CURLOPT_POSTFIELDS, $data);
+            $result = curl_exec($ch);
+            $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            curl_close($ch);
+            if ($result) {
+                return response()->json(['message' => 'ok','state'=>"message sent"], 200);
+            }else{
+                return response()->json(['message' => 'ok','state'=>" message not sent"], 200);
             }
 
         }else{
@@ -92,15 +119,17 @@ class BillsController extends Controller
         if ($client){
             if (sizeof($client->balance)>0){
                 $size=sizeof($client->balance);
-
-                $bal=new Balance();
-                $bal->client_id=$client->id;
-                $bal->date=Carbon::now();
-                $bal->previous=$client->balance[$size-1]->balance;
-                $bal->used=$request['data'];
-                $bal->balance=$client->balance[$size-1]->balance-$request['data'];
-                $bal->save();
-                return response()->json(['message' => 'ok','balance'=>$bal], 200);
+                if ($request['data']>0) {
+                    $bal = new Balance();
+                    $bal->client_id = $client->id;
+                    $bal->date = Carbon::now();
+                    $bal->previous = $client->balance[$size - 1]->balance;
+                    $bal->used = $request['data'];
+                    $bal->balance = $client->balance[$size - 1]->balance - $request['data'];
+                    $bal->save();
+                    return response()->json(['message' => 'ok','balance'=>$bal], 200);
+                }
+                return response()->json(['message' => 'ok','balance'=>$request['data']], 200);
             }
         }
     }

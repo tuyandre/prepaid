@@ -22,7 +22,7 @@
         <form role="form" @submit.prevent="submit" @keydown="form.onKeydown($event)" >
 
                 <div class="message"></div>
-                
+
                     <div class="info" >
                         <!-- <div class="step-title"><span>Personal Info</span><hr></div> -->
                         <div class="card-body">
@@ -73,7 +73,7 @@
 
                         </div>
                     <div class="card-footer form-group">
-                       
+
                         <button :disabled="is_disable" class="btn update" type="submit" >Save</button>
                     </div>
                     </div>
@@ -106,13 +106,14 @@ export default {
         created () {
         },
         methods: {
-     
+
             submit(){
                 this.is_disable=true
                          // Submit the form via a POST request
                 this.form.post('/admin/AddClient/save')
                     .then(({ data }) => {
                     console.log(data.message)
+                    console.log(data)
                     this.is_disable=false
                     // console.log(data)
                         if (data.message=="ok"){
@@ -138,8 +139,8 @@ export default {
                     })
             },
         }
-    
-    
+
+
 }
 </script>
 <style scoped>
@@ -152,14 +153,14 @@ export default {
         background: #DDEAF5;
         margin-left: 3%;
         border-radius: 5px;
-        
+
     }
     .login{
         background: #FFFFFF;
         /* box-shadow: 1px 1px 4px rgba(148, 143, 143, 0.25); */
         border-radius: 3px;
         font-family: "Arial Black", Gadget, sans-serif;
-        font-style: normal; 
+        font-style: normal;
         font-weight: normal;
         font-size: 12px;
         line-height: 16px;
@@ -174,12 +175,12 @@ export default {
       background: #DD1B1B;
         border-radius: 3px;
         font-family: "Arial Black", Gadget, sans-serif;
-        font-style: normal; 
+        font-style: normal;
         font-weight: normal;
         font-size: 14px;
         line-height: 16px;
 
-        color: #FFFFFF;  
+        color: #FFFFFF;
         border: none;
         margin-left: 75%;
     }
@@ -190,7 +191,7 @@ export default {
         background: #DDEAF5;
         margin-left: 3%;
         border-radius: 5px;
-        
+
     }
     .content-register{
     margin-left: 2%;
