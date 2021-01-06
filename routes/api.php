@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::post('v1/online/ussd/service', 'UssdController@onlineUssdMenu');
 Route::post('/client/AddUsage/save', [
     'uses' => 'BillsController@storeUsage',
     'as' => 'usage.store'
