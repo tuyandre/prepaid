@@ -110,11 +110,14 @@ class BillsController extends Controller
 
     }
     public function storeUsage(Request $request){
+        $usage=$request['data']/100;
+
         $client=Client::with(['Balance'=> function($query) {
             $query->orderBy('id', 'DESC')->first();
 
         }])
         ->where('compte',$request['compte'])->orderBy('id', 'DESC')->first();
+
 
         if ($client){
             if (sizeof($client->balance)>0){
@@ -124,9 +127,36 @@ class BillsController extends Controller
                     $bal->client_id = $client->id;
                     $bal->date = Carbon::now();
                     $bal->previous = $client->balance[$size - 1]->balance;
-                    $bal->used = $request['data'];
-                    $bal->balance = $client->balance[$size - 1]->balance - $request['data'];
+                    $bal->used = $usage;
+                    $bal->balance = $client->balance[$size - 1]->balance - $usage;
                     $bal->save();
+                    if ($bal->balance<=0){
+                        $data = array(
+                            "sender"=>'+250781898344',
+                            "recipients"=>'+250'.$client->telephone,
+                            "message"=>"Amazi mwaguze ararangiye hasigaye ". $bal->balance ." Litres"
+                        ,);
+                        $url = "https://www.intouchsms.co.rw/api/sendsms/.json";
+                        $data = http_build_query($data);
+                        $username="esperance";
+                        $password="0781898344";
+
+                        $ch = curl_init();
+                        curl_setopt($ch,CURLOPT_URL, $url);
+                        curl_setopt($ch, CURLOPT_USERPWD, $username . ":" . $password);
+                        curl_setopt($ch,CURLOPT_POST,true);
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
+                        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+                        curl_setopt($ch,CURLOPT_POSTFIELDS, $data);
+                        $result = curl_exec($ch);
+                        $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+                        curl_close($ch);
+                        if ($result) {
+                            return response()->json(['message' => 'ok','balance'=>$bal], 200);
+                        }else{
+                            return response()->json(['message' => 'ok','balance'=>$bal], 200);
+                        }
+                    }
                     return response()->json(['message' => 'ok','balance'=>$bal], 200);
                 }
                 return response()->json(['message' => 'ok','balance'=>$request['data']], 200);
