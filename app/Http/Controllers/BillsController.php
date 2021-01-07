@@ -110,7 +110,7 @@ class BillsController extends Controller
 
     }
     public function storeUsage(Request $request){
-        $usage=$request['data']/100;
+        $usage=$request['data']/10;
 
         $client=Client::with(['Balance'=> function($query) {
             $query->orderBy('id', 'DESC')->first();
